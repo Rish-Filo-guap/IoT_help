@@ -181,6 +181,9 @@ class Camera():
     def connect(self, request):
         self.code=request.args.get('code','')
         return {'response':0}
+    def get_data(self):
+        return {'code': self.code}
+
 class Light():
     def __init__(self):
         self.L1=1
