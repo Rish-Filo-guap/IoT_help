@@ -4,8 +4,16 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def hello_world():  # put application's code here
+def hello_world():
     return render_template('emulator.html')
+
+@app.route('/e')
+def hello_world():
+    return render_template('engeneer.html')
+
+@app.route('/o')
+def hello_world():
+    return render_template('operator.html')
 
 
 if __name__ == '__main__':
