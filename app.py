@@ -8,11 +8,11 @@ def hello_world():
     return render_template('emulator.html')
 
 @app.route('/e')
-def hello_world():
+def e():
     return render_template('engeneer.html')
 
 @app.route('/o')
-def hello_world():
+def o():
     return render_template('operator.html')
 
 
