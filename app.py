@@ -1,45 +1,65 @@
 import json
-import threading
 import time
+from time import sleep
+
+import logger
+import threading
 
 from flask import Flask, render_template, request
 
-import logger
 import things
+from things import *
+
+
+
 
 app = Flask(__name__)
+
 gripper=things.Gripper()
 vacuum=things.Vacuum()
 light=things.Light()
-camera=things.Camera()
 terminal=things.Terminal()
-loger=logger.Log()
+camera=things.Camera()
+logger=logger.Log()
 
-
-def log_data():
+def log_all():
     while True:
-        if loger.is_logging:
-            loger.log_data(gripper.get_data(), 'gripper_data')
-            loger.log_data(vacuum.get_data(), 'vacuum_data')
-            loger.log_data(camera.get_data(), 'camera_data')
+        if logger.is_logging:
+            logger.log_data(gripper.get_data(), 'gripper_data')
+            logger.log_data(vacuum.get_data(), 'vacuum_data')
+            logger.log_data(camera.get_data(), 'camera_data')
+            print("залогировано")
+            logger.get_chart()
         time.sleep(5)
 
-
-thread = threading.Thread(target=log_data)
+thread = threading.Thread(target=log_all)
 thread.daemon=True
 thread.start()
+
+@app.route('/')
+def hello_world():  # put application's codeй here
+    return render_template('emulator.html')
+
+@app.route('/o')
+def o():  # put application's codeй here
+    return render_template('operator.html')
+
+@app.route('/e')
+def e():  # put application's codeй here
+    return render_template('engeneer.html')
+
 
 @app.route('/change_is_logger')
 def c_i_l():
     if(request.args.get('F','')=='true'):
-        loger.is_logging=True
+        logger.is_logging=True
     else:
-        loger.is_logging=False
+        logger.is_logging=False
     return json.dumps({'response': 0})
 @app.route('/get_chart')
 def g_c():
 
-    return loger.get_chart()
+    return logger.get_chart()
 
 
 @app.route('/robot_gripper_connect')
@@ -92,26 +112,6 @@ def s_c_g_d():
     return json.dumps(camera.get_data())
 
 
-
-
-
-
-
-
-
-
-
-@app.route('/')
-def hello_world():
-    return render_template('emulator.html')
-
-@app.route('/e')
-def e():
-    return render_template('engeneer.html')
-
-@app.route('/o')
-def o():
-    return render_template('operator.html')
 
 
 if __name__ == '__main__':

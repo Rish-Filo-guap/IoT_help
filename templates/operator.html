@@ -5,7 +5,7 @@
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="../static/css/engeneer.css">
     <script src="../static/js/jquery-3.7.1.min.js"></script>
-    <script src="../static/js/index.js"></script>
+    <script src="../static/js/operator.js"></script>
 </head>
 <body>
 <div class="main">
@@ -21,126 +21,43 @@
         </div>
         <hr>
         <div class="sensors">
-        <label>Сохранить данные</label>
+        <label>Отправлять данные</label>
         <label class="switch">
-            <input type="checkbox" id="save_data" onclick="save_data_change()">
+            <input type="checkbox" id="send_data">
             <span class="slider round"></span>
         </label>
         </div>
-        <hr>
-         <div class="input-box">
-             <div class="sensors">
-             <label>Частота обновления</label>
-             </div>
-             <div class="sensors">
-             <input type="text" id="chastot" value="3" placeholder="C">
-             </div>
-             <div class="sensors">
-                 <button id="Izmen" onclick="new_interval()">Изменить</button>
-             </div>
-         </div>
-        <hr>
-        <div class="sensors">
-        <p>Допустимые значения</p>
-            </div>
-        <div class="sensors">
-        <div class="sensor">
-            <div class="input-box">
-                <label>t min</label>
-                <input type="text" id="td_1" placeholder="C">
-            </div>
-            <div class="input-box">
-                <label>l min</label>
-                <input type="text" id="ld_1" placeholder="C">
-            </div>
-            <div class="input-box">
-                <label>m min</label>
-                <input type="text" id="md_1" placeholder="C">
-            </div>
-        </div>
-        <div class="sensor">
-            <div class="input-box">
-                <label>t max</label>
-                <input type="text" id="td_2" placeholder="C">
-            </div>
-            <div class="input-box">
-                <label>l max</label>
-                <input type="text" id="ld_2" placeholder="C">
-            </div>
-            <div class="input-box">
-                <label>m max</label>
-                <input type="text" id="md_2" placeholder="C">
-            </div>
-        </div>
-    </div>
-        <div class="sensors">
-         <p>Критические значения</p>
-        </div>
-        <div class="sensors">
-        <div class="sensor">
-            <div class="input-box">
-                <label>t min</label>
-                <input type="text" id="tk_1" placeholder="C">
-            </div>
-            <div class="input-box">
-                <label>l min</label>
-                <input type="text" id="lk_1" placeholder="C">
-            </div>
-            <div class="input-box">
-                <label>m min</label>
-                <input type="text" id="mk_1" placeholder="C">
-            </div>
-        </div>
-        <div class="sensor">
-            <div class="input-box">
-                <label>t max</label>
-                <input type="text" id="tk_2" placeholder="C">
-            </div>
-            <div class="input-box">
-                <label>l max</label>
-                <input type="text" id="lk_2" placeholder="C">
-            </div>
-            <div class="input-box">
-                <label>m max</label>
-                <input type="text" id="mk_2" placeholder="C">
-            </div>
-        </div>
-    </div>
-        <div class="sensors">
-            <p id="dopysk">Выход за допустимое значение</p>
-        </div>
-         <div class="sensors">
-            <p id="critikal">Выход за критическое значение</p>
-         </div>
+
     </div>
     </div>
+    <div>
     <div id="emulators">
         <div class="row_things">
             <div class="thing" id = robot_left>
                 <div class="sensors">
                     <div class="sensor" id="temp">
                         <div class="input-box">
-                            <label>t1, С</label>
+                            <label>t1</label>
                             <input type="text" id="t1_1" placeholder="C" disabled="disabled">
                         </div>
                         <div class="input-box">
-                            <label>t2, С</label>
+                            <label>t2</label>
                             <input type="text" id="t2_1" placeholder="C" disabled="disabled">
                         </div>
                         <div class="input-box">
-                            <label>t3, С</label>
+                            <label>t3</label>
                             <input type="text" id="t3_1" placeholder="C" disabled="disabled">
                         </div>
                         <div class="input-box">
-                            <label>t4, С</label>
+                            <label>t4</label>
                             <input type="text" id="t4_1" placeholder="C" disabled="disabled">
                         </div>
                         <div class="input-box">
-                            <label>t5, С</label>
+                            <label>t5</label>
                             <input type="text" id="t5_1" placeholder="C" disabled="disabled">
                         </div>
                         <div class="input-box">
-                            <label>t6, С</label>
+                            <label>t6</label>
                             <input type="text" id="t6_1" placeholder="C" disabled="disabled">
                         </div>
                         <div class="input-box">
@@ -256,34 +173,34 @@
                         <label>G</label>
                         <input type="text" id="G_1" placeholder="G">
                     </div>
-                    <button onclick="robot_gripper_set_data()">Отправить</button>
+                    <button id="send1" onclick="robot_gripper_set_data()">Отправить</button>
                 </div>
             </div>
             <div class="thing" id = robot_right>
                 <div class="sensors">
                     <div class="sensor" id="temp_2">
                         <div class="input-box">
-                            <label>t1, С</label>
+                            <label>t1</label>
                             <input type="text" id="t1_2" placeholder="C" disabled="disabled">
                         </div>
                         <div class="input-box">
-                            <label>t2, С</label>
+                            <label>t2</label>
                             <input type="text" id="t2_2" placeholder="C" disabled="disabled">
                         </div>
                         <div class="input-box">
-                            <label>t3, С</label>
+                            <label>t3</label>
                             <input type="text" id="t3_2" placeholder="C" disabled="disabled">
                         </div>
                         <div class="input-box">
-                            <label>t4, С</label>
+                            <label>t4</label>
                             <input type="text" id="t4_2" placeholder="C" disabled="disabled">
                         </div>
                         <div class="input-box">
-                            <label>t5, С</label>
+                            <label>t5</label>
                             <input type="text" id="t5_2" placeholder="C" disabled="disabled">
                         </div>
                         <div class="input-box">
-                            <label>t6, С</label>
+                            <label>t6</label>
                             <input type="text" id="t6_2" placeholder="C" disabled="disabled">
                         </div>
                         <div class="input-box">
@@ -395,12 +312,13 @@
                         <label>V</label>
                         <input type="text" id="V_2" placeholder="V">
                     </div>
-                    <button onclick="robot_vacuum_set_data()">Отправить</button>
+                    <button id="send2" onclick="robot_vacuum_set_data()">Отправить</button>
                 </div>
                 <hr>
                      <div class="input-box">
                             <label>SmartCamera</label>
                             <input type="text" id="SmartCamera" placeholder="C" disabled="disabled">
+<p>Traffic light</p>
         <label class="switch">
             <input type="checkbox" id="k1_1">
             <span class="slider round"></span>
@@ -441,6 +359,7 @@
         </div>
             </div>
         </div>
+    </div>
     </div>
     </div>
 </div>

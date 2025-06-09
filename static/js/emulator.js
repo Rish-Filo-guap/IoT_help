@@ -146,7 +146,7 @@ function connect_traffic_lights() {
                 document.getElementById("traffic_green").style.backgroundColor = 'green'
             }
             else{
-                document.getElementById("traffic_greengreen").style.backgroundColor = 'black'
+                document.getElementById("traffic_green").style.backgroundColor = 'black'
             }
             }
     });

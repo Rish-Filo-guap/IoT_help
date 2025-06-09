@@ -19,7 +19,7 @@ function connecting() {
         connect_robot_1()
         connect_robot_2()
         connect_camera()
-        draw_chart()
+       // draw_chart()
     }
     traffic_lights_set_data()
     remote_terminal_set_data()
@@ -263,48 +263,48 @@ function save_data_change() {
 
     });
 }
-function draw_chart() {
-    let time = []
-    let temp = []
-    $.ajax({
-        type: 'GET',
-        url: "get_chart",
-        dataType: 'json',
-        contentType: 'application/json',
-        data: {
-
-        },
-
-        success: function (response) {
-            let ch;
-            let f=false;
-            if(f){
-                Chart.getChart("0")?.destroy()
-            }
-             f=true
-             ch = new Chart(
-                document.querySelector('.chart'), {
-                type: 'line',
-                data: {
-                    labels: response['time'],
-                    datasets: [{
-                        borderColor: 'red',
-                        label: 'Temperature',
-                        data: response['temp'],
-                        cubicInterpolationMode: 'monotone'
-                    }]
-                },
-                options: {}
-            }
-            );
-
-
-        }
-
-    });
-    //alert(resp)
-
-
-
-
-}
+//function draw_chart() {
+//    let time = []
+//    let temp = []
+//    $.ajax({
+//        type: 'GET',
+//        url: "get_chart",
+//        dataType: 'json',
+//        contentType: 'application/json',
+//        data: {
+//
+//        },
+//
+//        success: function (response) {
+//            let ch;
+//            let f=false;
+//            if(f){
+//                Chart.getChart("0")?.destroy()
+//            }
+//             f=true
+//             ch = new Chart(
+//                document.querySelector('.chart'), {
+//                type: 'line',
+//                data: {
+//                    labels: response['time'],
+//                    datasets: [{
+//                        borderColor: 'red',
+//                        label: 'Temperature',
+//                        data: response['temp'],
+//                        cubicInterpolationMode: 'monotone'
+//                    }]
+//                },
+//                options: {}
+//            }
+//            );
+//
+//
+//        }
+//
+//    });
+//    //alert(resp)
+//
+//
+//
+//
+//}
