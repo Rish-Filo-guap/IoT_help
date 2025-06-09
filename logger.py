@@ -12,3 +12,18 @@ class Log:
             'timeStemp': datetime.datetime.now(),
             **data
         })
+    def get_chart(self):
+        temp=[]
+        time=[]
+        cursor=self.db["gripper_data"].find()
+        for elem in cursor:
+            time.append(elem['timeStemp'])
+            tmp=0
+            for i in range(1,6):
+                tmp+=float(elem['t'+str(i)])
+            temp.append(int(tmp/6))
+        #print(temp)
+        return {
+            'time': time,
+            'temp': temp
+        }

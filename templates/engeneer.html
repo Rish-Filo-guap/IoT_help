@@ -5,6 +5,8 @@
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="../static/css/engeneer.css">
     <script src="../static/js/jquery-3.7.1.min.js"></script>
+<!--    <script src="../static/js/chart.min.js"></script>-->
+   <script src="https://unpkg.com/chart.js@3.5.0/dist/chart.min.js"></script>
     <script src="../static/js/index.js"></script>
 </head>
 <body>
@@ -114,33 +116,34 @@
          </div>
     </div>
     </div>
+    <div>
     <div id="emulators">
         <div class="row_things">
             <div class="thing" id = robot_left>
                 <div class="sensors">
                     <div class="sensor" id="temp">
                         <div class="input-box">
-                            <label>t1, С</label>
+                            <label>t1</label>
                             <input type="text" id="t1_1" placeholder="C" disabled="disabled">
                         </div>
                         <div class="input-box">
-                            <label>t2, С</label>
+                            <label>t2</label>
                             <input type="text" id="t2_1" placeholder="C" disabled="disabled">
                         </div>
                         <div class="input-box">
-                            <label>t3, С</label>
+                            <label>t3</label>
                             <input type="text" id="t3_1" placeholder="C" disabled="disabled">
                         </div>
                         <div class="input-box">
-                            <label>t4, С</label>
+                            <label>t4</label>
                             <input type="text" id="t4_1" placeholder="C" disabled="disabled">
                         </div>
                         <div class="input-box">
-                            <label>t5, С</label>
+                            <label>t5</label>
                             <input type="text" id="t5_1" placeholder="C" disabled="disabled">
                         </div>
                         <div class="input-box">
-                            <label>t6, С</label>
+                            <label>t6</label>
                             <input type="text" id="t6_1" placeholder="C" disabled="disabled">
                         </div>
                         <div class="input-box">
@@ -263,27 +266,27 @@
                 <div class="sensors">
                     <div class="sensor" id="temp_2">
                         <div class="input-box">
-                            <label>t1, С</label>
+                            <label>t1</label>
                             <input type="text" id="t1_2" placeholder="C" disabled="disabled">
                         </div>
                         <div class="input-box">
-                            <label>t2, С</label>
+                            <label>t2</label>
                             <input type="text" id="t2_2" placeholder="C" disabled="disabled">
                         </div>
                         <div class="input-box">
-                            <label>t3, С</label>
+                            <label>t3</label>
                             <input type="text" id="t3_2" placeholder="C" disabled="disabled">
                         </div>
                         <div class="input-box">
-                            <label>t4, С</label>
+                            <label>t4</label>
                             <input type="text" id="t4_2" placeholder="C" disabled="disabled">
                         </div>
                         <div class="input-box">
-                            <label>t5, С</label>
+                            <label>t5</label>
                             <input type="text" id="t5_2" placeholder="C" disabled="disabled">
                         </div>
                         <div class="input-box">
-                            <label>t6, С</label>
+                            <label>t6</label>
                             <input type="text" id="t6_2" placeholder="C" disabled="disabled">
                         </div>
                         <div class="input-box">
@@ -401,6 +404,7 @@
                      <div class="input-box">
                             <label>SmartCamera</label>
                             <input type="text" id="SmartCamera" placeholder="C" disabled="disabled">
+                         <p>Traffic light</p>
         <label class="switch">
             <input type="checkbox" id="k1_1">
             <span class="slider round"></span>
@@ -442,7 +446,11 @@
             </div>
         </div>
     </div>
+        <canvas class="chart"></canvas>
+    </div>
     </div>
 </div>
+
 </body>
+
 </html>
