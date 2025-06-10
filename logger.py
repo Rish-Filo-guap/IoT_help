@@ -23,7 +23,10 @@ class Log:
                 tmp+=float(elem['t'+str(i)])
             temp.append(int(tmp/6))
         #print(temp)
+
+
+
         return {
-            'time': time,
-            'temp': temp
+            'time': time[-10:],
+            'temp': temp[-10:]
         }
